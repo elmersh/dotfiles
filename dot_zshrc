@@ -1,0 +1,66 @@
+#!/bin/bash
+
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
+
+
+export ZSH="$HOME/.oh-my-zsh"
+export TERM="xterm-256color"
+
+# Options
+setopt hist_ignore_dups
+setopt hist_expire_dups_first
+
+# General
+DISABLE_AUTO_TITLE="false"
+ENABLE_CORRECTION="false"
+COMPLETION_WAITING_DOTS="true"
+SAVEHIST=99999
+
+# Magic Enter
+MAGIC_ENTER_GIT_COMMAND="git status -v && echo -e '\n'"
+MAGIC_ENTER_OTHER_COMMAND="lsda && echo -e '\n'"
+
+# Which plugins would you like to load? git
+plugins=(
+  #alias-tips
+  #dirhistory
+  #extract
+  #fancy-ctrl-z
+  fast-syntax-highlighting
+  #globalias
+  magic-enter
+  zsh-autosuggestions
+  #zsh-navigation-tools
+  colored-man-pages
+  #macos
+)
+
+#ZSH_THEME="jnrowe"
+
+# Carga todos los archivos dentro de scripts
+for f in  ~/.dotfiles/scripts/*(DN); do source $f; done
+
+ZSH_DISABLE_COMPFIX=false
+
+source $ZSH/oh-my-zsh.sh
+
+
+if [[ ${machine} == 'Mac' ]]; then
+  source $HOME/.dotfiles/.amac
+fi
+
+if [[ -a ~/.localrc ]]; then
+    source ~/.localrc
+fi
+eval "$(starship init zsh)"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# pnpm
+export PNPM_HOME="/Users/elmer/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
