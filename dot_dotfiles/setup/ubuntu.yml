@@ -1,6 +1,6 @@
 
 - hosts: all  
-- roles:
+  roles:
   - role: stephdewit.nvm
     nvm_version: 'latest'
     nvm_node_version: '10.4.0'
