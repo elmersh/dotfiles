@@ -53,17 +53,22 @@ source $ZSH/oh-my-zsh.sh
 echo ${machine}
 if [[ ${machine} == 'Mac' ]]; then
   source $HOME/.dotfiles/.amac
-else
-  source $HOME/.dotfiles/.linux
+
+  export PNPM_HOME="/Users/elmer/Library/pnpm"
+  export PATH="$PNPM_HOME:$PATH"
 fi
 
 if [[ -a ~/.localrc ]]; then
     source ~/.localrc
 fi
+
 eval "$(starship init zsh)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # pnpm
-export PNPM_HOME="/Users/elmer/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
+
+if [[ ${machine} == 'Linux' ]]; then
+  source $HOME/.dotfiles/.linux
+fi
+
 # pnpm end
