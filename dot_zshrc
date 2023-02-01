@@ -62,13 +62,10 @@ if [[ -a ~/.localrc ]]; then
     source ~/.localrc
 fi
 
-eval "$(starship init zsh)"
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# pnpm
-
 if [[ ${machine} == 'Linux' ]]; then
   source $HOME/.dotfiles/.linux
 fi
+eval "$(starship init zsh)"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # pnpm end
