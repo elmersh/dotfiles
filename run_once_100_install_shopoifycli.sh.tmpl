@@ -20,5 +20,6 @@ shopify --version || brew install shopify-cli
 {{ end -}}
 
 {{ if eq .chezmoi.os "linux" -}}
-sudo apt-get update -y
-
+nvm --version || echo "No esta instalado nvm"
+npm install -g @shopify/cli @shopify/theme || echo "No esta instalado npm"
+{{ end -}}
