@@ -50,7 +50,7 @@ ZSH_DISABLE_COMPFIX=false
 
 source $ZSH/oh-my-zsh.sh
 
-
+echo ${machine}
 if [[ ${machine} == 'Mac' ]]; then
   source $HOME/.dotfiles/.amac
 else

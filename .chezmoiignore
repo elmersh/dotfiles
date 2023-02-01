@@ -1,9 +1,6 @@
 {{ if ne .chezmoi.os "darwin" }}
 .zprofile
 {{ end }}
-{{ if ne .chezmoi.os "linux" }}
-.ubuntu
-{{ end }}
 README.md
 .oh-my-zsh/.DS_Store
 .oh-my-zsh/custom/.DS_Store
