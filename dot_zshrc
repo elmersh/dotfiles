@@ -54,7 +54,7 @@ source $ZSH/oh-my-zsh.sh
 if [[ ${machine} == 'Mac' ]]; then
   source $HOME/.dotfiles/.amac
 else
-  source $HOME/.dotfiles/.ubuntu
+  source $HOME/.dotfiles/.linux
 fi
 
 if [[ -a ~/.localrc ]]; then
