@@ -11,7 +11,7 @@
   when: ansible_distribution != 'MacOSX'
 
 - name: Download Robo3T archive
-  get_url: url=https://download.robomongo.org/1.2.1/linux/robo3t-1.2.1-linux-x86_64-3e50a65.tar.gz dest=/tmp/robo3t.tar.gz
+  get_url: url=https://download.studio3t.com/studio-3t/linux/2022.10.0/studio-3t-linux-x64.tar.gz dest=/tmp/robo3t.tar.gz
   when: ansible_distribution != 'MacOSX' and robo3t_folder.stat.exists == False
 
 - name: Extract robo3t tools
