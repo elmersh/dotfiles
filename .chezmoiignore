@@ -1,3 +1,7 @@
 {{ if ne .chezmoi.os "darwin" }}
 .zprofile
 {{ end }}
+README.md
+.oh-my-zsh/cache
+.oh-my-zsh/.DS_Store
+.oh-my-zsh/custom/.DS_Store

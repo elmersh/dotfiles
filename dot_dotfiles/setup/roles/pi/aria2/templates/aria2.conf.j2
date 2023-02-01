@@ -1,0 +1,18 @@
+# https://aria2.github.io/manual/en/html/aria2c.html#basic-options
+
+enable-rpc=true
+rpc-listen-all=true
+file-allocation=falloc
+continue
+dir=/data/downloads/Media
+rpc-secret={{ aria2_secret }}
+bt-enable-lpd=true
+bt-remove-unselected-file=true
+enable-peer-exchange=true
+bt-prioritize-piece=head=100M,tail=10M
+keep-unfinished-download-result=true
+save-session=/home/aria/.aria2/session.txt
+save-session-interval=10
+input-file=/home/aria/.aria2/session.txt
+auto-save-interval=5
+rpc-allow-origin-all=true

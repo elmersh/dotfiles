@@ -1,0 +1,44 @@
+
+- hosts: all  
+- roles:
+  - role: stephdewit.nvm
+    nvm_version: 'latest'
+    nvm_node_version: '10.4.0'
+
+- hosts: all
+  roles:
+#    - common/gitconfig
+    - ubuntu/apt
+#    - ubuntu/docker
+    - ubuntu/zsh
+    - common/robo3t
+    - common/reactotron
+    - common/fira-code-font
+    - ubuntu/homebrew
+
+- hosts: all
+  roles:
+     - role: gantsign.postman
+
+- hosts: all
+  vars:
+    inotify_max_user_watches: 524288
+  roles:
+    - ubuntu/inotify
+
+- hosts: all
+  roles:
+    - role: gantsign.visual-studio-code
+      users:
+        - username: "{{ ansible_env.USER }}"
+          visual_studio_code_extensions:
+            - eamodio.gitlens
+            - dbaeumer.vscode-eslint
+            - ms-vscode.vscode-typescript-tslint-plugin
+            - esbenp.prettier-vscode
+          visual_studio_code_settings: {
+            "editor.rulers": [80, 100, 120],
+            "workbench.editor.enablePreview": false,
+            "editor.fontFamily": "Fira Code",
+            "editor.fontLigatures": true,
+          }

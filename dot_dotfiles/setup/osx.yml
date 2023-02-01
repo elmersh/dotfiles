@@ -1,0 +1,48 @@
+- hosts: all
+  roles:
+    - role: stephdewit.nvm
+      nvm_version: 'latest'
+      nvm_node_version: '10.4.0'
+
+- hosts: all
+  roles:
+#    - common/gitconfig
+    - common/robo3t
+    - common/reactotron
+ #   - common/fira-code-font
+#    - osx/terminal
+- hosts: all
+  tasks:
+    - name: install homebrew casks apps
+      homebrew_cask:
+        name:
+#          - postman
+          - sublime-text
+          - sublime-merge
+#          - docker
+#          - android-studio
+        state: present
+
+- hosts: all
+  tasks:
+    - name: install homebrew packages
+      homebrew:
+        name:
+          - git-flow-avh
+#         - micro
+          - wifi-password
+          - bat
+          - ripgrep
+          - autojump
+        state: present
+#    - name: Change user shell to zsh
+#      user:
+#        name: "{{ ansible_env.USER }}"
+#        shell: /bin/zsh
+      become: true
+
+- hosts: all
+  roles:
+    - role: gantsign.visual-studio-code
+      users:
+        - username: "{{ ansible_env.USER }}"
