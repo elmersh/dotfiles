@@ -4,5 +4,4 @@
       - micro
       - bat
       - ripgrep
-#      - docker-compose
     state: present
