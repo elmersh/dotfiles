@@ -2,9 +2,9 @@
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
+  export EDITOR='subl'
 else
-  export EDITOR='nvim'
+  export EDITOR='subl'
 fi
 
 
@@ -24,6 +24,7 @@ SAVEHIST=99999
 # Magic Enter
 MAGIC_ENTER_GIT_COMMAND="git status -v && echo -e '\n'"
 MAGIC_ENTER_OTHER_COMMAND="lsda && echo -e '\n'"
+DISABLE_AUTO_UPDATE="true"
 
 # Which plugins would you like to load? git
 plugins=(
@@ -52,6 +53,8 @@ source $ZSH/oh-my-zsh.sh
 
 if [[ ${machine} == 'Mac' ]]; then
   source $HOME/.dotfiles/.amac
+else
+  source $HOME/.dotfiles/.linux
 fi
 
 if [[ -a ~/.localrc ]]; then

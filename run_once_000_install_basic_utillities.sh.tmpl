@@ -1,0 +1,23 @@
+#!/bin/bash -e
+{{ if eq .chezmoi.os "linux" -}}
+sudo apt-get update -y
+
+packages=(
+    curl \
+    git \
+    jq \
+    terminator \
+    neovim \
+)
+for package in "${packages[@]}"; do
+    (sudo dpkg -l "$package" > /dev/null && echo "El paquete '$package' ya está instalado") \
+        || sudo apt-get install -y "$package"
+done
+
+{{ else if eq .chezmoi.os "darwin" -}}
+brew --version || (/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)")
+wget --version || brew install wget
+xcode-select --install || echo "XCode CLI tools ya está instalado"
+((brew info cmake | grep -i "no está instalado") && brew install cmake) || echo "cmake ya está instalado"
+which jq || brew install jq
+{{ end -}}

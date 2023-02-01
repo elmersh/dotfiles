@@ -1,0 +1,32 @@
+#!/bin/bash -ex
+starship_version="1.12.0"
+
+if which starship; then
+    current_version=$(starship --version | head -n 1 | awk '{print $2}')
+    [ "$current_version" = "$starship_version" ] && exit 0
+fi
+
+{{ if (eq .chezmoi.os "linux") }}
+OS_BINARY=unknown-linux-gnu
+{{ else if (eq .chezmoi.os "darwin") }}
+OS_BINARY=apple-darwin
+{{ else }}
+echo "ERROR: sistema operativo no reconocido. '{{ .chezmoi.os }}'"
+{{ end }}
+
+cd /tmp
+wget -O starship.tar.gz https://github.com/starship/starship/releases/download/v${starship_version}/starship-x86_64-${OS_BINARY}.tar.gz
+wget -O starship.tar.gz.sha256 https://github.com/starship/starship/releases/download/v${starship_version}/starship-x86_64-${OS_BINARY}.tar.gz.sha256
+test "$(sha256sum starship.tar.gz | cut -d' ' -f1)" == "$(cat starship.tar.gz.sha256)" || echo "ERROR: starship CLI checksum did not match!!!"
+tar -xvf starship.tar.gz
+
+
+{{ if (eq .chezmoi.os "linux") }}
+mkdir -p $HOME/bin
+mv starship $HOME/bin
+{{ else if (eq .chezmoi.os "darwin") }}
+mkdir -p $HOME/.local/bin
+mv starship $HOME/.local/bin
+{{ else }}
+echo "ERROR: sistema operativo no reconocido. '{{ .chezmoi.os }}'"
+{{ end }}

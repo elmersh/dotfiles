@@ -1,13 +1,18 @@
-# This is Git's per-user configuration file.
+{{ if not .shared_machine -}}
 [user]
-	name = Elmer Sorto
-	email = dev@elmer.sh
-	signingKey = ""
+    name = {{ .fullname }}
+    email = {{ .email }}
+    signingkey = ""
+
+[github]
+    user = {{ .github_username }}
+{{- end }}
+
 [init]
 	defaultBranch = "main"
 [core]
 	excludesfile = ~/.gitignore_global
-	editor = nvim
+	editor = subl
 	ignorecase = false
 	autocrlf = input
 [push]

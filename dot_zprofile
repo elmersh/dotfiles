@@ -5,7 +5,6 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # Added by Toolbox App
 export PATH="$PATH:/Users/elmer/Library/Application Support/JetBrains/Toolbox/scripts"
 
-. /opt/homebrew/etc/profile.d/z.sh
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 
 

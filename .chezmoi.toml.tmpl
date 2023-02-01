@@ -1,0 +1,18 @@
+{{- $sharedMachine := promptString "¿Es una pc compartida? (y/n)" -}}
+{{- $fullname := "" -}}
+{{- $email := "" -}}
+{{- $githubUsername := "" -}}
+
+{{- if ne $sharedMachine "y" -}}
+    {{- $fullname = promptString "Nombre completo" -}}
+    {{- $email = promptString "Email" -}}
+    {{- $githubUsername = promptString "Usuario de Github" -}}
+{{- end -}}
+
+[data]
+    shared_machine = {{ eq $sharedMachine "y" }}
+{{- if ne $sharedMachine "y" }}
+    fullname = "{{ $fullname }}"
+    email = "{{ $email }}"
+    github_username = "{{ $githubUsername }}"
+{{- end }}
