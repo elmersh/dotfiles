@@ -14,7 +14,7 @@
     - common/robo3t
     - common/reactotron
     - common/fira-code-font
-    - ubuntu/homebrew
+#    - ubuntu/homebrew
 
 - hosts: all
   roles:
