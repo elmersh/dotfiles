@@ -1,0 +1,66 @@
+#!/bin/bash
+# export PATH_TO_FX=/Users/elmersh/Dev/java/javafx-sdk-11.0.2/lib
+#export MAMP_PHP=/Applications/MAMP/bin/php/php8.1.1/bin
+#export MAMP_MYSQL=/Applications/MAMP/Library/bin
+
+. $HOME/.local/share/z.sh
+
+alias python="/opt/homebrew/bin/python3"
+
+alias work="cd $HOME/Dev/work/shopify"
+alias projects="cd $HOME/Dev/projects"
+alias utec="cd $HOME/OneDrive/UTEC/Clases"
+alias learn="cd $HOME/Dev/learning"
+alias platzi="cd $HOME/Dev/learning/platzi"
+alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
+
+alias psqlon='pg_ctl -D /opt/homebrew/var/postgres start'
+alias psqloff='pg_ctl -D /opt/homebrew/var/postgres stop'
+
+alias v='nvim'
+alias vim='nvim'
+
+# function to make commit messages
+function fy {
+  case $1 in
+    'p')
+      shopify theme push
+      ;;
+    *)
+      code . && shopify theme dev --store $(pwd | grep -o '[^/]*$')
+      ;;
+  esac
+}
+
+alias shdown="shopify theme pull --store $1"
+alias shdev="code . && shopify theme dev --store $1"
+alias shgd="gct && shdev"
+alias shx="shopify auth logout"
+alias shup="shopify theme push"
+
+function hey {
+  case $1 in
+    1)
+      say -v Diego $2
+      ;;
+    2)
+      say -v Juan $2
+      ;;
+    3)
+      say -v Paulina $2
+      ;;
+    4)
+      say -v Monica $2
+      ;;
+    yo)
+      say -v Juan 'Elmer Sorto'
+      ;;
+    *)
+      say -v Jorge $1
+      ;;
+  esac
+}
+
+function mysqls() {
+  command mysql --socket /tmp/mysql_$1.sock -uroot
+}
