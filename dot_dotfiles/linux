@@ -1,5 +1,5 @@
 #!/bin/bash
-
+export PATH=$HOME/bin:$PATH
 . $HOME/.local/share/z.sh
 
 alias work="cd $HOME/Dev/work/shopify"
