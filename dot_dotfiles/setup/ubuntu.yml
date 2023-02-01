@@ -16,7 +16,7 @@
 
 - hosts: all
   roles:
-     - role: gantsign.postman
+    - role: gantsign.postman
 
 - hosts: all
   vars:
@@ -29,3 +29,8 @@
     - role: gantsign.visual-studio-code
       users:
         - username: "{{ ansible_env.USER }}"
+# change default shell to user
+- hosts: all
+  tasks:
+    - name: Change default shell to user
+      shell: chsh -s /bin/zsh
