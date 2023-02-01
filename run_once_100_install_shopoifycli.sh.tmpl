@@ -18,3 +18,7 @@ done
 shopify --version || brew tap shopify/shopify 
 shopify --version || brew install shopify-cli
 {{ end -}}
+
+{{ if eq .chezmoi.os "linux" -}}
+sudo apt-get update -y
+

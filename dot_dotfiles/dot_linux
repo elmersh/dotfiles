@@ -5,6 +5,8 @@ if [ -d "$HOME/.local/bin" ] ; then
     export PATH="$HOME/.local/bin:$PATH"
 fi
 
+
+
 alias work="cd $HOME/Dev/work/shopify"
 alias projects="cd $HOME/Dev/projects"
 alias utec="cd $HOME/OneDrive/UTEC/Clases"
