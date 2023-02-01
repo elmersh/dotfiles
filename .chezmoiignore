@@ -2,8 +2,5 @@
 .zprofile
 {{ end }}
 README.md
-{{ if exists ".oh-my-zsh/cache" }}
-.oh-my-zsh/cache
-{{ end }}
 .oh-my-zsh/.DS_Store
 .oh-my-zsh/custom/.DS_Store
