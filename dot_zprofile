@@ -5,7 +5,7 @@ emulate zsh
 # Set PATH, MANPATH, etc., for Homebrew.
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-export MAMP_PHP=/Applications/MAMP/bin/php/php7.4.33/bin/php
+export MAMP_PHP=/Applications/MAMP/bin/php/php7.4.33/bin
 export MAMP_MYSQL=/Applications/MAMP/Library/bin
 
 # Added by Toolbox App
