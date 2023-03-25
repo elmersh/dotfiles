@@ -1,7 +1,5 @@
 #!/bin/bash
 # export PATH_TO_FX=/Users/elmersh/Dev/java/javafx-sdk-11.0.2/lib
-export MAMP_PHP=/Applications/MAMP/bin/php/php7.4.33/bin/php
-export MAMP_MYSQL=/Applications/MAMP/Library/bin
 
 . $HOME/.local/share/z.sh
 
