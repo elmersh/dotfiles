@@ -1,19 +1,5 @@
 #!/bin/bash -e
-{{ if eq .chezmoi.os "linux" -}}
-sudo apt-get update -y
-
-packages=(
-    curl \
-    git \
-    jq \
-    neovim \
-)
-for package in "${packages[@]}"; do
-    (sudo dpkg -l "$package" > /dev/null && echo "El paquete '$package' ya está instalado") \
-        || sudo apt-get install -y "$package"
-done
-{{ else if eq .chezmoi.os "linux" }}
-    {{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+{{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
     sudo apt-get update -y
 
     packages=(
@@ -22,8 +8,22 @@ done
         jq \
         neovim \
     )
-    {{   end }}
-{{ else if eq .chezmoi.os "darwin" -}}
+{{ else }}
+    sudo apt-get update -y
+
+    packages=(
+        curl \
+        git \
+        jq \
+        neovim \
+    )
+    for package in "${packages[@]}"; do
+        (sudo dpkg -l "$package" > /dev/null && echo "El paquete '$package' ya está instalado") \
+            || sudo apt-get install -y "$package"
+    done
+{{   end }}
+
+{{ if eq .chezmoi.os "darwin" -}}
 brew --version || (/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)")
 wget --version || brew install wget
 xcode-select --install || echo "XCode CLI tools ya está instalado"
