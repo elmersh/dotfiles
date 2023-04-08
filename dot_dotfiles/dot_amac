@@ -18,6 +18,10 @@ alias psqloff='pg_ctl -D /opt/homebrew/var/postgres stop'
 
 alias v='nvim'
 alias vim='nvim'
+alias npm='pnpm'
+
+# manage dot files with chezmoi
+alias dots='chezmoi'
 
 # function to make commit messages
 function fy {
