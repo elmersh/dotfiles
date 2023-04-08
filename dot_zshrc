@@ -62,6 +62,7 @@ if [[ -a ~/.localrc ]]; then
 fi
 eval "$(starship init zsh)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source ~/.dotfiles/source.sh
 
 # pnpm
 export PNPM_HOME="/Users/elmer/Library/pnpm"
