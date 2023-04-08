@@ -20,6 +20,11 @@ alias v='nvim'
 alias vim='nvim'
 alias npm='pnpm'
 
+alias bserv='brew services'
+alias bsup='brew services start $1'
+alias bsdown='brew services stop $1'
+
+
 # manage dot files with chezmoi
 alias dots='chezmoi'
 
