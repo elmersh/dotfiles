@@ -1,11 +1,4 @@
 #!/bin/bash
-# Development stuff
-
-
-# MongoDB
-alias mongoin='mongosh  "mongodb://root:asdfbr%21%21%21@localhost:27017"'
-alias tomc='/opt/homebrew/opt/tomcat/bin/catalina run'
-
 # other
 
 alias du='du -h'
@@ -33,9 +26,6 @@ alias l='lsd'
 # Laravel
 alias a='php artisan'
 alias amfs='php artisan migrate:fresh --seed'
-
-# Archivos de proyectos
-alias dev='cd ~/Dev'
 
 
 # checkout main branch

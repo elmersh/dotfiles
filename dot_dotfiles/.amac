@@ -7,12 +7,18 @@
 
 alias python="/opt/homebrew/bin/python3"
 
-alias work="cd $HOME/Dev/work/shopify"
-alias projects="cd $HOME/Dev/projects"
+
+alias dev='cd /Volumes/Dev'
+alias sites='cd /Volumes/Dev/herd'
+alias ajs='cd /Volumes/Dev/astrojs'
+alias njs='cd /Volumes/Dev/nextjs'
+alias pify='cd /Volumes/Dev/Shopify'
 alias utec="cd $HOME/OneDrive/UTEC/Clases"
-alias learn="cd $HOME/Dev/learning"
-alias platzi="cd $HOME/Dev/learning/platzi"
 alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
+
+# MongoDB
+alias mongoin='mongosh  "mongodb://root:asdfbr%21%21%21@localhost:27017"'
+alias tomc='/opt/homebrew/opt/tomcat/bin/catalina run'
 
 alias psqlon='pg_ctl -D /opt/homebrew/var/postgres start'
 alias psqloff='pg_ctl -D /opt/homebrew/var/postgres stop'
