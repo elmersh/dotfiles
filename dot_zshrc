@@ -8,8 +8,8 @@ else
 fi
 
 
-# export ZSH="$HOME/.oh-my-zsh"
-export TERM="xterm-256color"
+export ZSH="$HOME/.oh-my-zsh"
+#export TERM="xterm-256color"
 
 # Options
 setopt hist_ignore_dups
@@ -27,28 +27,28 @@ MAGIC_ENTER_OTHER_COMMAND="lsda && echo -e '\n'"
 DISABLE_AUTO_UPDATE="true"
 
 # Which plugins would you like to load? git
-# plugins=(
-#   #alias-tips
-#   #dirhistory
-#   #extract
-#   #fancy-ctrl-z
-#   fast-syntax-highlighting
-#   #globalias
-#   magic-enter
-#   zsh-autosuggestions
-#   #zsh-navigation-tools
-#   colored-man-pages
-#   #macos
-# )
+plugins=(
+  #alias-tips
+  #dirhistory
+  #extract
+  #fancy-ctrl-z
+  #fast-syntax-highlighting
+  #globalias
+  magic-enter
+  #zsh-autosuggestions
+  #zsh-navigation-tools
+  colored-man-pages
+  #macos
+)
 
-#ZSH_THEME="jnrowe"
+#ZSH_THEME="random"
 
 # Carga todos los archivos dentro de scripts
 for f in  ~/.dotfiles/scripts/*(DN); do source $f; done
 
-ZSH_DISABLE_COMPFIX=false
+#ZSH_DISABLE_COMPFIX=false
 
-# source $ZSH/oh-my-zsh.sh
+source $ZSH/oh-my-zsh.sh
 
 echo ${machine}
 if [[ ${machine} == 'Mac' ]]; then
@@ -71,3 +71,11 @@ export PATH="$PNPM_HOME:$PATH"
 export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+
+# Herd injected PHP binary.
+export PATH="/Users/elmer/Library/Application Support/Herd/bin/":$PATH
+
+
+# Herd injected PHP 8.2 configuration.
+export HERD_PHP_82_INI_SCAN_DIR="/Users/elmer/Library/Application Support/Herd/config/php/82/"

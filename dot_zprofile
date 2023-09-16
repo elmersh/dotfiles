@@ -5,16 +5,17 @@ emulate zsh
 # Set PATH, MANPATH, etc., for Homebrew.
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-mysql_running=$(pgrep -f '/Applications/MAMP/Library/bin/mysqld')
+# mysql_running=$(pgrep mysql | wc -l);
 
-if [ -d "/Applications/MAMP/Library/bin" ] && [ -n "$mysql_running" ]; then
-    export MAMP_PHP=/Applications/MAMP/bin/php/php7.4.33/bin
-    export MAMP_MYSQL=/Applications/MAMP/Library/bin
-fi
+# if [ -d "/Applications/MAMP/Library/bin" ] && [ -n "$mysql_running" ]; then
+#     export MAMP_PHP=/Applications/MAMP/bin/php/php8.1.13/bin
+#     export MAMP_MYSQL=/Applications/MAMP/Library/bin
+# fi
 # Added by Toolbox App
 export PATH="$PATH:/Users/elmer/Library/Application Support/JetBrains/Toolbox/scripts"
 
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+
 
 
 export PATH=$HOME/.yarn/bin:$HOME/.local/bin:$HOME/.composer/vendor/bin:$MAMP_PHP:$MAMP_MYSQL:$HOME/.rbenv/bin:/opt/homebrew/opt/ruby/bin:$PATH
