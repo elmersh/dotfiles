@@ -8,12 +8,12 @@
 alias python="/opt/homebrew/bin/python3"
 
 
-alias dev='cd /Volumes/Dev'
-alias sites='cd /Volumes/Dev/herd'
-alias ajs='cd /Volumes/Dev/astrojs'
-alias njs='cd /Volumes/Dev/nextjs'
-alias pify='cd /Volumes/Dev/Shopify'
-alias utec="cd $HOME/OneDrive/UTEC/Clases"
+alias dev='cd ~/Code'
+alias sites='cd ~/Code/herd'
+alias ajs='cd ~/Code/astrojs'
+alias njs='cd ~/Code/nextjs'
+alias pify='cd ~/Code/Shopify'
+alias utec="cd ~/OneDrive/UTEC/Clases"
 alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
 
 # MongoDB
