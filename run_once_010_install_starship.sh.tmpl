@@ -2,7 +2,7 @@
 
 # check if in mac, install with brew install starship
 {{ if eq .chezmoi.os "darwin" -}}
-starship --version || rew install starship
+starship --version || brew install starship
 {{ else if eq .chezmoi.os "linux" -}}
 starship --version || curl -sS https://starship.rs/install.sh | sh
 {{ end -}}
