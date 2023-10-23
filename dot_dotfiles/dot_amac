@@ -1,32 +1,30 @@
 #!/bin/bash
 # export PATH_TO_FX=/Users/elmersh/Dev/java/javafx-sdk-11.0.2/lib
+#export MAMP_PHP=/Applications/MAMP/bin/php/php8.1.1/bin
+#export MAMP_MYSQL=/Applications/MAMP/Library/bin
 
 . $HOME/.local/share/z.sh
 
 alias python="/opt/homebrew/bin/python3"
 
-alias work="cd $HOME/Dev/work/shopify"
-alias projects="cd $HOME/Dev/projects"
-alias utec="cd $HOME/OneDrive/UTEC/Clases"
-alias learn="cd $HOME/Dev/learning"
-alias platzi="cd $HOME/Dev/learning/platzi"
+
+alias dev='cd ~/Code'
+alias sites='cd ~/Code/herd'
+alias ajs='cd ~/Code/astrojs'
+alias njs='cd ~/Code/nextjs'
+alias pify='cd ~/Code/Shopify'
+alias utec="cd ~/OneDrive/UTEC/Clases"
 alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
+
+# MongoDB
+alias mongoin='mongosh  "mongodb://root:asdfbr%21%21%21@localhost:27017"'
+alias tomc='/opt/homebrew/opt/tomcat/bin/catalina run'
 
 alias psqlon='pg_ctl -D /opt/homebrew/var/postgres start'
 alias psqloff='pg_ctl -D /opt/homebrew/var/postgres stop'
-#alias mphp='/Applications/MAMP/bin/php/php7.4.33/bin/php'
 
 alias v='nvim'
 alias vim='nvim'
-alias npm='pnpm'
-
-alias bserv='brew services'
-alias bsup='brew services start $1'
-alias bsdown='brew services stop $1'
-
-
-# manage dot files with chezmoi
-alias dots='chezmoi'
 
 # function to make commit messages
 function fy {
@@ -69,6 +67,6 @@ function hey {
   esac
 }
 
-# function mysqls() {
-#   command mysql --socket /tmp/mysql_$1.sock -uroot
-# }
+function mysqls() {
+  command mysql --socket /tmp/mysql_$1.sock -uroot
+}
