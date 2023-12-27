@@ -6,3 +6,7 @@ README.md
 .oh-my-zsh/custom/.DS_Store
 .DS_Store
 dot_DS_Store
+*/**/.DS_Store
+*/**/dot_DS_Store
+*/**/**/.DS_Store
+*/**/**/dot_DS_Store
