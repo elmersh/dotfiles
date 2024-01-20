@@ -1,0 +1,7 @@
+- name: Install homebrew packages
+  homebrew:
+    name:
+      - micro
+      - bat
+      - ripgrep
+    state: present
