@@ -1,0 +1,13 @@
+- name: Install usbmount
+  apt:
+    name: usbmount
+  become_user: root
+  become: yes
+
+- name: Enable shared MountFlags so usbmount will work
+  become_user: root
+  become: yes
+  lineinfile:
+    destfile: /lib/systemd/system/systemd-udevd.service
+    regexp: '^MountFlags'
+    line: 'MountFlags=shared'

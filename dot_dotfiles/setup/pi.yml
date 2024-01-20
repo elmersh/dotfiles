@@ -1,0 +1,41 @@
+- hosts: all
+  roles:
+    - ubuntu/homebrew
+    - ubuntu/zsh
+    - pi/avahi
+    - pi/nginx
+    - pi/usbmount
+    - pi/docker
+    - pi/aria2
+    - pi/afs
+    - pi/plex
+
+- hosts: all
+  become: yes
+  become_user: root
+  tasks:
+    - name: Turn off ssh by password auth
+      lineinfile:
+        destfile: /etc/ssh/sshd_config
+        regexp: '^PasswordAuthentication'
+        line: 'PasswordAuthentication no'
+    - name: Turn off ssh for root user
+      lineinfile:
+        destfile: /etc/ssh/sshd_config
+        regexp: '^PermitRootLogin'
+        line: 'PermitRootLogin no'
+    - name: Install a list of packages
+      apt:
+        name: "{{ packages }}"
+      vars:
+        packages:
+        - mosh
+        - tmux
+    - name: Install a list of locales
+      locale_gen:
+        name: "{{item}}"
+        state: present
+      with_items:
+        - en_US.UTF-8
+        - ru_RU.UTF-8
+        - he_IL.UTF-8
