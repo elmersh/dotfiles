@@ -8,7 +8,11 @@ function commit {
     git add .
     git commit -m "$args"
 }
-# Alias para ir a una carpeta con cd: c
+# Alias para crear una carpeta y cambiar a ella
+function mkd {
+    mkdir $args
+    cd $args
+}
 
 # php artisan
 function art {
