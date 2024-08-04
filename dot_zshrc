@@ -23,7 +23,7 @@ SAVEHIST=99999
 # Magic Enter
 MAGIC_ENTER_GIT_COMMAND="git status -v && echo -e '\n'"
 MAGIC_ENTER_OTHER_COMMAND="lsda && echo -e '\n'"
-DISABLE_AUTO_UPDATE="true"
+# DISABLE_AUTO_UPDATE="false"
 
 # Which plugins would you like to load? git
 plugins=(
@@ -31,10 +31,10 @@ plugins=(
 	#dirhistory
 	#extract
 	#fancy-ctrl-z
-	#fast-syntax-highlighting
+	fast-syntax-highlighting
 	#globalias
 	magic-enter
-	#zsh-autosuggestions
+	zsh-autosuggestions
 	#zsh-navigation-tools
 	colored-man-pages
 	#macos
@@ -61,14 +61,16 @@ if [[ -e ~/.localrc ]]; then
 fi
 eval "$(starship init zsh)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 source ~/.dotfiles/source.sh
 
-export PATH="$HOME/.spin/bin:$PATH"
+# export PATH="$HOME/.spin/bin:$PATH"
 
-# pnpm
-export PNPM_HOME="/Users/elmer/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
+# # pnpm
+# export PNPM_HOME="/Users/elmer/Library/pnpm"
+# export PATH="$PNPM_HOME:$PATH"
 # pnpm end
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"                                       # This loads nvm
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
@@ -84,3 +86,7 @@ export HERD_PHP_74_INI_SCAN_DIR="/Users/elmer/Library/Application Support/Herd/c
 
 # Herd injected PHP 8.3 configuration.
 export HERD_PHP_83_INI_SCAN_DIR="/Users/elmer/Library/Application Support/Herd/config/php/83/"
+
+
+# Herd injected PHP 8.0 configuration.
+export HERD_PHP_80_INI_SCAN_DIR="/Users/elmer/Library/Application Support/Herd/config/php/80/"
