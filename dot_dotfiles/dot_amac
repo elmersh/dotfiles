@@ -72,3 +72,87 @@ function hey {
 function mysqls() {
   command mysql --socket /tmp/mysql_$1.sock -uroot
 }
+
+#!/bin/bash
+
+# List of directories for DEV_DIR
+DEV_DIRS=(
+    "/ruta/a/dev_dir1"
+    "/ruta/a/dev_dir2"
+    "/ruta/a/dev_dir3"
+)
+
+# List of code editors
+EDITORS=("subl" "code" "phpstorm" "coda" "zed" "webstorm" "fleet")
+
+# Function to show available directories
+function list_directories() {
+    local i=1
+    echo "Directorios disponibles:"
+    for dir in "${DEV_DIRS[@]}"; do
+        echo "$i) $dir"
+        ((i++))
+    done
+}
+
+# Function to show available editors
+function list_editors() {
+    local i=1
+    echo "Editores disponibles:"
+    for editor in "${EDITORS[@]}"; do
+        echo "$i) $editor"
+        ((i++))
+    done
+}
+
+# Main function
+function cdh() {
+    local choice dir_choice editor_choice
+    list_directories
+
+    read -p "Selecciona el número del directorio o presiona Enter para ir al primero: " dir_choice
+
+    # If no choice, select the first directory
+    if [[ -z "$dir_choice" || ! "$dir_choice" =~ ^[0-9]+$ ]]; then
+        dir_choice=1
+    fi
+
+    # Convert choice to zero-based index
+    dir_index=$((dir_choice - 1))
+
+    # Check if the index is valid
+    if [[ $dir_index -ge 0 && $dir_index -lt ${#DEV_DIRS[@]} ]]; then
+        # Change to the selected directory
+        cd "${DEV_DIRS[$dir_index]}" || {
+            echo "Error: El directorio '${DEV_DIRS[$dir_index]}' no existe."
+            return
+        }
+    else
+        echo "Selección no válida. Cambiando al primer directorio."
+        cd "${DEV_DIRS[0]}" || {
+            echo "Error: El directorio '${DEV_DIRS[0]}' no existe."
+            return
+        }
+    fi
+
+    echo "Has cambiado al directorio: $(pwd)"
+
+    list_editors
+    read -p "Selecciona el número del editor o presiona Enter para no abrir ninguno: " editor_choice
+
+    # If a valid editor is chosen, open it
+    if [[ "$editor_choice" =~ ^[0-9]+$ ]]; then
+        editor_index=$((editor_choice - 1))
+        if [[ $editor_index -ge 0 && $editor_index -lt ${#EDITORS[@]} ]]; then
+            "${EDITORS[$editor_index]}" .
+        else
+            echo "Selección de editor no válida."
+        fi
+    else
+        echo "No se abrió ningún editor."
+    fi
+}
+
+# Alias for the function
+alias cdh=cdh
+
